@@ -317,6 +317,8 @@ def sleep(ghost=None):
     else:
         esp32.wake_on_ext0(pin=touchpad, level=esp32.WAKEUP_ANY_HIGH)
         Pin(27, Pin.PULL_HOLD)
+        display.sleep_mode(1)
+        i2c.writeto_mem(0x69, 0x6B, b'\x40')  # Sleep mode is not implemented in the driver, so we use brute force.
         time.sleep_ms(500)
         tim.deinit()
         led.off()
@@ -328,6 +330,7 @@ display = st7735.ST7735(spi, 80, 160, cs=Pin(5, Pin.OUT), dc=Pin(23, Pin.OUT), r
 display.init()
 
 i2c = SoftI2C(scl=Pin(22, Pin.OUT), sda=Pin(21, Pin.OUT))
+i2c.writeto_mem(0x69, 0x6B, b'\x00')  # Waking up the gyroscope
 #print([hex(i) for i in i2c.scan()])
 r = pcf8563.PCF8563(i2c)
 #_________________________________________________
