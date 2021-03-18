@@ -8,7 +8,6 @@
         Touchpad:33, LED:4, VBUS_ADC:36, TouchPower:25, Battery_ADC:35
         
     https://github.com/chicory-ru
-
 '''
 
 from machine import SoftI2C, Pin, SPI, ADC, deepsleep, Timer
@@ -280,8 +279,8 @@ def compas():
 def menu():
     horizontal_rotation()
     display.fill(st7735.BLACK)
-    menutext = 'Time set', 'Date set', 'Compas  ', 'Exit    '
-    foo = time_set, date_set, compas, sleep
+    menutext = 'Exit    ', 'Time set', 'Date set', 'Compas  ' 
+    foo = sleep, time_set, date_set, compas 
     point = 0
     tim.init(period=100000)
     while tim.value() < 50000:
@@ -290,6 +289,7 @@ def menu():
         if step[0] == 1:
             foo[step[1]]()
             continue
+        display.text(vga2_8x16, 'menu', 0, 0, st7735.PURPLE)
         display.text(vga2_bold_16x32, menutext[step[1]], 10, 25, st7735.GREEN)
     sleep()
     
