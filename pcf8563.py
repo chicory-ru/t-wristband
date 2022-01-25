@@ -142,7 +142,7 @@ class PCF8563:
                   date=None, month=None, year=None):
         """Direct write un-none value.
         Range: seconds [0,59], minutes [0,59], hours [0,23],
-               day [0,7], date [1-31], month [1-12], year [0-99].
+               day [0,6], date [1-31], month [1-12], year [0-99].
         """
         if seconds is not None:
             if seconds < 0 or seconds > 59:
@@ -177,8 +177,8 @@ class PCF8563:
             self.__write_byte(PCF8563_DAY_REG, self.__dec2bcd(date))
 
         if day is not None:
-            if day < 1 or day > 7:
-                raise ValueError('Day is out of range [1,7].')
+            if day < 0 or day > 6:
+                raise ValueError('Day is out of range [0,6].')
             self.__write_byte(PCF8563_WEEKDAY_REG, self.__dec2bcd(day))
 
     def set_datetime(self, dt):
