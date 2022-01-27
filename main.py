@@ -420,7 +420,7 @@ def calibrate():
     offset, scale = ak8963.calibrate(count=256, delay=200)
     
     with open('calib.py', 'w') as text:
-        text.write('offset = ' + str(offset) + '\n' + 'scale = ' + str(scale))
+        text.write('offset = ' + str(offset) + '\n' + 'scale = ' + str(scale) + '\n')
     
     print_saved()
     print(offset, scale)
