@@ -4,7 +4,7 @@ This is an implementation of a micropython clock for the lilygo®ttgo t-wristban
 The program is suitable for the version with the mpu9250 gyroscope.   
 The version with a different gyroscope has completely different pins and you will have to modify the program yourself.  
 Super short video: https://youtu.be/rZkwvvz0KFw  
-I used a C# video driver from this author: https://github.com/ccccmagicboy/st7735_mpy  
+I used a C video driver from this author: https://github.com/ccccmagicboy/st7735_mpy  
 You need to compile the micropython along with this driver.  
 Or you can take in this repository the already compiled firmware.bin  
 I took the font files along with the display driver.  
