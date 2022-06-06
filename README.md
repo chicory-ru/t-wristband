@@ -1,7 +1,7 @@
 ### t-wristband  
 lilygo®ttgo t-wristband & micropython.   
 This is an implementation of a micropython clock for the lilygo®ttgo t-wristband.  
-The program is suitable for the version with the mpu9250 gyroscope.   
+The program is suitable for the version with the esp32 chip and the mpu9250 gyroscope.    
 The version with a different gyroscope has completely different pins and you will have to modify the program yourself.  
 Super short video: https://youtu.be/rZkwvvz0KFw  
 I used a C video driver from this author: https://github.com/ccccmagicboy/st7735_mpy  
